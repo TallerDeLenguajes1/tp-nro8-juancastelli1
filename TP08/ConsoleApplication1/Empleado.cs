@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,18 @@ namespace ConsoleApplication1
             this.genero = _genero;
             this.fechaingreso = _fechaingreso;
             this.cargo = _cargo;
+        }
+        public void AgregarAArchiv(StreamWriter write)
+        {
+            try
+            {
+                write.Write("\n{0};{1};{2};{3};{4};{5};{6}", nombre, apellido, fechanac.ToShortDateString(), estadocivil, genero, fechaingreso.ToShortDateString(), cargo);
+            }
+            catch (Exception x)
+            {
+                string hola = x.ToString();
+
+            } 
         }
         public void MostrarEmpleado()
         {
